@@ -4,7 +4,6 @@ tap "caskroom/cask"
 
 # General
 brew "git"
-brew "keybase"
 brew "nmap"
 brew "tmux"
 brew "wget"
@@ -27,9 +26,6 @@ brew "kops"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
 
-# Skyscrapers
-brew "openconnect"
-
 # Applications
 cask "google-chrome"
 cask "slack"
@@ -48,6 +44,7 @@ cask "iterm2"
 cask "firefox"
 cask "plex-media-player"
 cask "docker"
+cask "keybase"
 
 # Pastebot
 # Pocket
