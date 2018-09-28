@@ -25,6 +25,7 @@ brew "go"
 brew "kops"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
+brew "kubectx"
 
 # Applications
 cask "google-chrome"
