@@ -20,3 +20,22 @@ cp /tmp/dotfiles/gitconfig ~/.gitconfig
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp /tmp/dotfiles/zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install code extensions
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension eamodio.gitlens
+code --install-extension erd0s.terraform-autocomplete
+code --install-extension James-Yu.latex-workshop
+code --install-extension jpogran.puppet-vscode
+code --install-extension lextudio.restructuredtext
+code --install-extension mauve.terraform
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-python.python
+code --install-extension ms-vscode.Go
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension redhat.vscode-yaml
+code --install-extension searKing.preview-vscode
+code --install-extension technosophos.vscode-helm
+
+# Setup settings of VS Code
+cp /tmp/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
