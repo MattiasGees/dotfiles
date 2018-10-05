@@ -1,6 +1,7 @@
 cask_args appdir: "/Applications"
 
 tap "caskroom/cask"
+tap "superbrothers/zsh-kubectl-prompt"
 
 # General
 brew "git"
@@ -8,6 +9,8 @@ brew "nmap"
 brew "tmux"
 brew "wget"
 brew "zsh"
+brew "jq"
+brew "hg"
 
 # Automation
 brew "ansible"
@@ -17,6 +20,7 @@ brew "terraform"
 # Cloud
 brew "awscli"
 brew "azure-cli"
+#cask "google-cloud-sdk"
 
 # Programming
 brew "go"
@@ -26,6 +30,10 @@ brew "kops"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
 brew "kubectx"
+brew "zsh-kubectl-prompt" #From custom tap
+
+# Security
+#brew "vault"
 
 # Applications
 cask "google-chrome"

@@ -64,3 +64,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 alias vault-login="vault login -method=cert"
 alias git-sync="git checkout master && git fetch upstream && git rebase upstream/master && git push origin master"
 alias git-clean="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d && git remote prune origin && git remote prune upstream"
+
+autoload -U colors; colors
+source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
