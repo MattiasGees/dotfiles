@@ -25,6 +25,9 @@ brew "azure-cli"
 # Programming
 brew "go"
 
+# Collaboration
+brew "tmate"
+
 # kubernetes
 brew "kops"
 brew "kubernetes-cli"
