@@ -11,6 +11,7 @@ brew "wget"
 brew "zsh"
 brew "jq"
 brew "hg"
+brew "direnv"
 
 # Automation
 brew "ansible"

@@ -68,3 +68,6 @@ alias git-clean="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git
 autoload -U colors; colors
 source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+
+# Enable direnv
+eval "$(direnv hook zsh)"
