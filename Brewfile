@@ -12,6 +12,8 @@ brew "zsh"
 brew "jq"
 brew "hg"
 brew "direnv"
+brew "telnet"
+brew "htop"
 
 # Automation
 brew "ansible"
@@ -21,7 +23,7 @@ brew "terraform"
 # Cloud
 brew "awscli"
 brew "azure-cli"
-#cask "google-cloud-sdk"
+cask "google-cloud-sdk"
 
 # Programming
 brew "go"
@@ -38,6 +40,9 @@ brew "zsh-kubectl-prompt" #From custom tap
 
 # Security
 #brew "vault"
+
+# GPG
+brew "pinentry-mac"
 
 # Applications
 cask "google-chrome"

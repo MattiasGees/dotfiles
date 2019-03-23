@@ -24,6 +24,8 @@ plugins=(
   tmux
   zsh-autosuggestions
   colored-man-pages
+  gpg-agent
+  golang
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -60,6 +62,7 @@ source $ZSH/oh-my-zsh.sh
 # configure jetstack vault
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
+export GPG_TTY=$(tty)
 
 alias vault-login="vault login -method=cert"
 alias git-sync="git checkout master && git fetch upstream && git rebase upstream/master && git push origin master"

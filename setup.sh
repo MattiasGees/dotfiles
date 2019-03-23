@@ -39,3 +39,7 @@ code --install-extension technosophos.vscode-helm
 
 # Setup settings of VS Code
 cp /tmp/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+# Setup GPG
+cp /tmp/dotfiles/gpg.conf ~/.gnupg/gpg.conf
+cp /tmp/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
