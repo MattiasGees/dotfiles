@@ -24,3 +24,7 @@ bash <(curl -s https://raw.githubusercontent.com/MattiasGees/dotfiles/master/set
 - Magnet
 - Pocket
 - ublock
+
+## Workstation
+
+Workstation is based on the idea of [fatih](https://github.com/fatih/dotfiles). Some code is a copy of his repo.

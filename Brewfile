@@ -14,6 +14,8 @@ brew "hg"
 brew "direnv"
 brew "telnet"
 brew "htop"
+brew "watch"
+brew "mosh"
 
 # Automation
 brew "ansible"
