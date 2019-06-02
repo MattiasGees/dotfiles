@@ -103,6 +103,8 @@ RUN mkdir /run/sshd
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 RUN sed 's/#Port 22/Port 3222/' -i /etc/ssh/sshd_config
 
+RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
+
 RUN wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz && rm go1.11.4.linux-amd64.tar.gz
 
 ENV LANG="en_US.UTF-8"
@@ -141,8 +143,8 @@ RUN mkdir ~/.ssh && curl -fsL https://github.com/mattiasgees.keys > ~/.ssh/autho
 
 # zsh plugins
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-#RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+RUN git clone https://github.com/superbrothers/zsh-kubectl-prompt.git /usr/local/etc/zsh-kubectl-prompt
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 # tmux plugins
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

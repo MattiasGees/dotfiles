@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:mattiasgees/dotfiles.git
 rm ~/.zshrc
 ln -s $(pwd)/zshrc ~/.zshrc
 ln -s $(pwd)/gitconfig ~/.gitconfig
-ln -s $(pwd)/sshconfig ~/.ssh/config
+ln -s $(pwd)/sshconfig_linux ~/.ssh/config
 
 
 /usr/sbin/sshd -D
