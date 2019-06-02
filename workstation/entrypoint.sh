@@ -13,6 +13,7 @@ fi
 cd ~/code/dotfiles 
 git remote set-url origin git@github.com:mattiasgees/dotfiles.git
 
+rm ~/.zshrc
 ln -s $(pwd)/zshrc ~/.zshrc
 ln -s $(pwd)/gitconfig ~/.gitconfig
 ln -s $(pwd)/sshconfig ~/.ssh/config

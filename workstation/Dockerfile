@@ -21,6 +21,7 @@ FROM ubuntu:18.10
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
+	ansible \
 	apache2-utils \
 	apt-transport-https \
 	build-essential \
@@ -139,8 +140,9 @@ RUN wget https://github.com/gsamokovarov/jump/releases/download/v0.22.0/jump_0.2
 RUN mkdir ~/.ssh && curl -fsL https://github.com/mattiasgees.keys > ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
 
 # zsh plugins
-RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+#RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 # tmux plugins
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
