@@ -12,8 +12,10 @@ op get document 'kubeconfig' > kubeconfig
 # op get document 'zsh_private' > zsh_private
 # op get document 'zsh_history' > zsh_history
 
-rm ~/.ssh/id_rsa
-rm ~/.kube/config
+mkdir -p ~/.kube
+
+rm -f ~/.ssh/id_rsa
+rm -f ~/.kube/config
 # rm ~/.zsh_private
 # rm ~/.zsh_history
 

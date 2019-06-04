@@ -16,6 +16,16 @@ FROM ubuntu:18.10 as terraform_builder
 RUN apt-get update && apt-get install -y wget ca-certificates unzip
 RUN wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip && unzip terraform_0.11.11_linux_amd64.zip && chmod +x terraform && mv terraform /usr/local/bin && rm terraform_0.11.11_linux_amd64.zip
 
+# install HELM
+FROM ubuntu:18.10 as helm_builder
+RUN apt-get update && apt-get install -y wget ca-certificates
+RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.14.0-linux-amd64.tar.gz && tar -xvf helm-v2.14.0-linux-amd64.tar.gz  && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin && rm helm-v2.14.0-linux-amd64.tar.gz
+
+# install Kubectx/kubens
+FROM ubuntu:18.10 as kubectx_builder
+RUN apt-get update && apt-get install -y wget ca-certificates unzip
+RUN wget https://github.com/ahmetb/kubectx/archive/v0.6.3.zip && unzip v0.6.3.zip && chmod +x kubectx-0.6.3/kubens && chmod +x kubectx-0.6.3/kubectx && mv kubectx-0.6.3/kubens /usr/local/bin && mv kubectx-0.6.3/kubectx /usr/local/bin && rm v0.6.3.zip
+
 # base OS
 FROM ubuntu:18.10
 ENV DEBIAN_FRONTEND=noninteractive
@@ -137,6 +147,13 @@ COPY --from=onepassword_builder /usr/bin/op /usr/local/bin/
 # terraform tools
 COPY --from=terraform_builder /usr/local/bin/terraform /usr/local/bin/
 
+# HELM
+COPY --from=helm_builder /usr/local/bin/helm /usr/local/bin/
+
+# kubectx
+COPY --from=kubectx_builder /usr/local/bin/kubectx /usr/local/bin/
+COPY --from=kubectx_builder /usr/local/bin/kubens /usr/local/bin/
+
 # install tools
 RUN wget https://github.com/gsamokovarov/jump/releases/download/v0.22.0/jump_0.22.0_amd64.deb && sudo dpkg -i jump_0.22.0_amd64.deb && rm -rf jump_0.22.0_amd64.deb
 
@@ -145,7 +162,7 @@ RUN mkdir ~/.ssh && curl -fsL https://github.com/mattiasgees.keys > ~/.ssh/autho
 # zsh plugins
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 RUN git clone https://github.com/superbrothers/zsh-kubectl-prompt.git /usr/local/etc/zsh-kubectl-prompt
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # tmux plugins
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
