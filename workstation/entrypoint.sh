@@ -17,6 +17,6 @@ rm ~/.zshrc
 ln -s $(pwd)/zshrc ~/.zshrc
 ln -s $(pwd)/gitconfig ~/.gitconfig
 ln -s $(pwd)/sshconfig_linux ~/.ssh/config
-
+ln -s ~/code ~/go
 
 /usr/sbin/sshd -D
