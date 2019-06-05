@@ -64,6 +64,7 @@ export PATH="/usr/local/go/bin:$PATH"
 # configure jetstack vault
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$GOPATH/src/github.com/jetstack/tarmak/_output
 export GPG_TTY=$(tty)
 
 alias vault-login="vault login -method=cert"
