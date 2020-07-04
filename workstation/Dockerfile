@@ -1,33 +1,33 @@
-ARG GOLANG_VERSION=1.11.4
+ARG GOLANG_VERSION=1.14.4
 
 # install kubectl
-FROM ubuntu:18.10 as kubectl_builder
+FROM ubuntu:20.04 as kubectl_builder
 RUN apt-get update && apt-get install -y curl ca-certificates
 RUN curl -L -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod 755 /usr/local/bin/kubectl
 
 # install 1password
-FROM ubuntu:18.10 as onepassword_builder
+FROM ubuntu:20.04 as onepassword_builder
 RUN apt-get update && apt-get install -y curl ca-certificates unzip
-RUN curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd64_v0.5.5.zip && unzip 1password.zip op -d /usr/bin &&  rm 1password.zip
+RUN curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.2.0/op_linux_amd64_v1.2.0.zip && unzip 1password.zip op -d /usr/bin &&  rm 1password.zip
 
 # install terraform
-FROM ubuntu:18.10 as terraform_builder
+FROM ubuntu:20.04 as terraform_builder
 RUN apt-get update && apt-get install -y wget ca-certificates unzip
-RUN wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip && unzip terraform_0.11.11_linux_amd64.zip && chmod +x terraform && mv terraform /usr/local/bin && rm terraform_0.11.11_linux_amd64.zip
+RUN wget https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip && unzip terraform_0.11.11_linux_amd64.zip && chmod +x terraform && mv terraform /usr/local/bin && rm terraform_0.11.11_linux_amd64.zip
 
 # install HELM
-FROM ubuntu:18.10 as helm_builder
+FROM ubuntu:20.04 as helm_builder
 RUN apt-get update && apt-get install -y wget ca-certificates
-RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.14.0-linux-amd64.tar.gz && tar -xvf helm-v2.14.0-linux-amd64.tar.gz  && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin && rm helm-v2.14.0-linux-amd64.tar.gz
+RUN wget https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz && tar -xvf helm-v2.14.0-linux-amd64.tar.gz  && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin && rm helm-v2.14.0-linux-amd64.tar.gz
 
 # install Kubectx/kubens
-FROM ubuntu:18.10 as kubectx_builder
+FROM ubuntu:20.04 as kubectx_builder
 RUN apt-get update && apt-get install -y wget ca-certificates unzip
-RUN wget https://github.com/ahmetb/kubectx/archive/v0.6.3.zip && unzip v0.6.3.zip && chmod +x kubectx-0.6.3/kubens && chmod +x kubectx-0.6.3/kubectx && mv kubectx-0.6.3/kubens /usr/local/bin && mv kubectx-0.6.3/kubectx /usr/local/bin && rm v0.6.3.zip
+RUN wget https://github.com/ahmetb/kubectx/archive/v0.9.1.zip && unzip v0.6.3.zip && chmod +x kubectx-0.6.3/kubens && chmod +x kubectx-0.6.3/kubectx && mv kubectx-0.6.3/kubens /usr/local/bin && mv kubectx-0.6.3/kubectx /usr/local/bin && rm v0.6.3.zip
 
 # base OS
-FROM ubuntu:18.10
+FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \

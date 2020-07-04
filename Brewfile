@@ -16,11 +16,10 @@ brew "telnet"
 brew "htop"
 brew "watch"
 brew "mosh"
+brew "neofetch
 
 # Automation
 brew "ansible"
-brew "packer"
-brew "terraform"
 
 # Cloud
 brew "awscli"
@@ -39,9 +38,15 @@ brew "kubernetes-cli"
 brew "kubernetes-helm"
 brew "kubectx"
 brew "zsh-kubectl-prompt" #From custom tap
+brew "istioctl"
+brew "sops"
+brew "telepresence"
 
-# Security
-#brew "vault"
+# Hashicorp
+brew "vault"
+brew "packer"
+brew "terraform"
+brew "consul"
 
 # GPG
 brew "pinentry-mac"
