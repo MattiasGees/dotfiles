@@ -70,6 +70,8 @@ export GPG_TTY=$(tty)
 alias vault-login="vault login -method=cert"
 alias git-sync="git checkout master && git fetch upstream && git rebase upstream/master && git push origin master"
 alias git-clean="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d && git remote prune origin && git remote prune upstream"
+alias gcloud-personal="gcloud config set core/account mattias.gees@gmail.com"
+alias gcloud-work="gcloud config set core/account mattias.gees@jetstack.io"
 
 autoload -U colors; colors
 source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
