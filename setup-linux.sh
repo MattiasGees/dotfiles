@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo dnf install -y dnf-plugins-core
+
 # Import repos
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -12,6 +14,17 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF'
+sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+[google-cloud-sdk]
+name=Google Cloud SDK
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOM
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
 git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
 
@@ -25,6 +38,18 @@ sudo dnf install -y code
 sudo dnf install -y direnv
 sudo dnf install -y golang
 sudo dnf install -y kubectl
+sudo dnf install -y google-cloud-sdk
+sudo dnf install -y terraform
+sudo dnf install -y vault
+
+# Add flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Flatpak apps
+flatpak install flathub com.spotify.Client
+flatpak install flathub us.zoom.Zoom
+flatpak install flathub com.obsproject.Studio
+flatpak install flathub com.slack.Slack
 
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
