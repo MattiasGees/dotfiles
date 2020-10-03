@@ -34,6 +34,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
 sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
 git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
 
@@ -56,6 +57,9 @@ sudo dnf install -y make
 sudo dnf install -y fzf
 sudo dnf install -y vagrant
 sudo dnf install -y VirtualBox-6.1
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+
+sudo usermod -aG docker mattias
 
 # Add flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -107,6 +111,7 @@ code --install-extension redhat.vscode-yaml
 code --install-extension searKing.preview-vscode
 code --install-extension technosophos.vscode-helm
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension marcostazi.vs-code-vagrantfile
 
 # Setup settings of VS Code
 cp /tmp/dotfiles/settings.json ~/.config/Code/User/settings.json
