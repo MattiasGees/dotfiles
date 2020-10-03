@@ -69,6 +69,11 @@ chmod -R 755 ~/.oh-my-zsh/completions
 ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
 ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
 
+# 1 Password
+curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.7.0/op_linux_amd64_v1.7.0.zip
+./unzip 1password.zip
+mv op /usr/local/bin
+
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
 
