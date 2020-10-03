@@ -26,16 +26,13 @@ code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension eamodio.gitlens
 code --install-extension erd0s.terraform-autocomplete
 code --install-extension James-Yu.latex-workshop
-code --install-extension jpogran.puppet-vscode
 code --install-extension lextudio.restructuredtext
-code --install-extension mauve.terraform
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.python
-code --install-extension ms-vscode.Go
-code --install-extension PeterJausovec.vscode-docker
 code --install-extension redhat.vscode-yaml
 code --install-extension searKing.preview-vscode
 code --install-extension technosophos.vscode-helm
+code --install-extension ms-azuretools.vscode-docker
 
 # Setup settings of VS Code
 cp /tmp/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json

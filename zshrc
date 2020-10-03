@@ -23,6 +23,7 @@ plugins=(
   encode64
   tmux
   zsh-autosuggestions
+  zsh-kubectl-prompt
   colored-man-pages
   gpg-agent
   golang
@@ -64,7 +65,6 @@ export PATH="/usr/local/go/bin:$PATH"
 # configure jetstack vault
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$PATH:$GOPATH/src/github.com/jetstack/tarmak/_output
 export GPG_TTY=$(tty)
 
 alias vault-login="vault login -method=cert"
@@ -74,7 +74,6 @@ alias gcloud-personal="gcloud config set core/account mattias.gees@gmail.com"
 alias gcloud-work="gcloud config set core/account mattias.gees@jetstack.io"
 
 autoload -U colors; colors
-source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 # Enable direnv
