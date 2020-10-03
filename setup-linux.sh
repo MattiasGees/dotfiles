@@ -32,6 +32,7 @@ git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
 cd /tmp/dotfiles
 sudo dnf check-update
 
+sudo dnf install -y htop
 sudo dnf install -y zsh
 sudo dnf install -y util-linux-user #needed for chsh
 sudo dnf install -y code
@@ -41,6 +42,9 @@ sudo dnf install -y kubectl
 sudo dnf install -y google-cloud-sdk
 sudo dnf install -y terraform
 sudo dnf install -y vault
+sudo dnf install -y jq
+sudo dnf install -y make
+sudo dnf install -y fzf
 
 # Add flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -50,6 +54,20 @@ flatpak install flathub com.spotify.Client
 flatpak install flathub us.zoom.Zoom
 flatpak install flathub com.obsproject.Studio
 flatpak install flathub com.slack.Slack
+
+# HELM
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+# Kubectx/Kubens
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+mkdir -p ~/.oh-my-zsh/completions
+chmod -R 755 ~/.oh-my-zsh/completions
+ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
+ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
 
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
