@@ -14,6 +14,15 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF'
+sudo sh -c 'cat <<EOF > /etc/yum.repos.d/virtualbox.repo
+[virtualbox]
+name=Fedora $releasever - $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+EOF'
 sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
 name=Google Cloud SDK
@@ -45,6 +54,8 @@ sudo dnf install -y vault
 sudo dnf install -y jq
 sudo dnf install -y make
 sudo dnf install -y fzf
+sudo dnf install -y vagrant
+sudo dnf install -y VirtualBox-6.1
 
 # Add flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
