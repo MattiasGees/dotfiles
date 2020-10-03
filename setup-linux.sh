@@ -66,13 +66,13 @@ sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 mkdir -p ~/.oh-my-zsh/completions
 chmod -R 755 ~/.oh-my-zsh/completions
-ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
-ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
+sudo ln -s /opt/kubectx/completion/kubectx.zsh /usr/share/zsh/site-functions/_kubectx.zsh
+sudo ln -s /opt/kubectx/completion/kubens.zsh /usr/share/zsh/site-functions/_kubens.zsh
 
 # 1 Password
 curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.7.0/op_linux_amd64_v1.7.0.zip
-./unzip 1password.zip
-mv op /usr/local/bin
+unzip 1password.zip
+sudo mv op /usr/local/bin
 
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
