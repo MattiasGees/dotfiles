@@ -2,8 +2,12 @@
 
 Run setup
 
-```
+``` bash
+# Mac
 bash <(curl -s https://raw.githubusercontent.com/MattiasGees/dotfiles/master/setup.sh)
+
+# Linux
+bash <(curl -s https://raw.githubusercontent.com/MattiasGees/dotfiles/master/setup-linux.sh)
 ```
 
 ## Google chrome extensions
