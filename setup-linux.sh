@@ -58,6 +58,7 @@ sudo dnf install -y fzf
 sudo dnf install -y vagrant
 sudo dnf install -y VirtualBox-6.1
 sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo dnf install -y icedtea-web #Needed for access to certain portals
 
 sudo usermod -aG docker mattias
 
