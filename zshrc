@@ -28,6 +28,12 @@ plugins=(
   gpg-agent
   golang
   kubectl
+  gcloud
+  extract
+  terraform
+  vagrant
+  vault
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
