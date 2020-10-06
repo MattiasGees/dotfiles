@@ -27,6 +27,7 @@ plugins=(
   colored-man-pages
   gpg-agent
   golang
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
