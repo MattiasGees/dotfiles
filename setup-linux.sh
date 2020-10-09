@@ -90,6 +90,11 @@ chmod -R 755 ~/.oh-my-zsh/completions
 sudo ln -s /opt/kubectx/completion/kubectx.zsh /usr/share/zsh/site-functions/_kubectx.zsh
 sudo ln -s /opt/kubectx/completion/kubens.zsh /usr/share/zsh/site-functions/_kubens.zsh
 
+# Clusterctl
+curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v0.3.10/clusterctl-linux-amd64 -o clusterctl
+chmod +x ./clusterctl
+sudo mv ./clusterctl /usr/local/bin/clusterctl
+
 # 1 Password
 curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.7.0/op_linux_amd64_v1.7.0.zip
 unzip 1password.zip
