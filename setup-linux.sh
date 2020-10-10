@@ -59,6 +59,7 @@ sudo dnf install -y vagrant
 sudo dnf install -y VirtualBox-6.1
 sudo dnf install -y docker-ce docker-ce-cli containerd.io
 sudo dnf install -y icedtea-web #Needed for access to certain portals
+sudo dnf install -y awscli
 
 sudo usermod -aG docker mattias
 
@@ -94,6 +95,10 @@ sudo ln -s /opt/kubectx/completion/kubens.zsh /usr/share/zsh/site-functions/_kub
 curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v0.3.10/clusterctl-linux-amd64 -o clusterctl
 chmod +x ./clusterctl
 sudo mv ./clusterctl /usr/local/bin/clusterctl
+
+# Sops
+curl -L https://github.com/mozilla/sops/releases/download/v3.6.1/sops-3.6.1-1.x86_64.rpm -o sops-3.6.1-1.x86_64.rpm
+sudo rpm -ivh sops-3.6.1-1.x86_64.rpm
 
 # 1 Password
 curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.7.0/op_linux_amd64_v1.7.0.zip
