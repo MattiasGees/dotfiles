@@ -49,6 +49,7 @@ sudo dnf install -y code
 sudo dnf install -y direnv
 sudo dnf install -y golang
 sudo dnf install -y kubectl
+sudo dnf install -y kubeadm
 sudo dnf install -y google-cloud-sdk
 sudo dnf install -y terraform
 sudo dnf install -y vault
@@ -127,6 +128,7 @@ code --install-extension searKing.preview-vscode
 code --install-extension technosophos.vscode-helm
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension marcostazi.vs-code-vagrantfile
+code --install-extension hashicorp.terraform
 
 # Setup settings of VS Code
 cp /tmp/dotfiles/settings.json ~/.config/Code/User/settings.json
