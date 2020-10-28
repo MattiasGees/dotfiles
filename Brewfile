@@ -1,6 +1,6 @@
 cask_args appdir: "/Applications"
 
-tap "caskroom/cask"
+tap "homebrew/cask"
 tap "superbrothers/zsh-kubectl-prompt"
 
 # General
@@ -16,7 +16,7 @@ brew "telnet"
 brew "htop"
 brew "watch"
 brew "mosh"
-brew "neofetch
+brew "neofetch"
 
 # Automation
 brew "ansible"
