@@ -21,6 +21,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 cp /tmp/dotfiles/zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# Set permissions
+chmod -R 744 /usr/local/share/zsh
+
 # Install code extensions
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension eamodio.gitlens
