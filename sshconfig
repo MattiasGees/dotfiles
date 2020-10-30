@@ -1,4 +1,5 @@
 Host *
+   IdentitiesOnly=yes
    ServerAliveInterval 120
    AddKeysToAgent yes
    UseKeychain yes

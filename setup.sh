@@ -16,6 +16,9 @@ brew bundle
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
 
+# Setup SSH
+cp /tmp/dotfiles/sshconfig ~/.ssh/config
+
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp /tmp/dotfiles/zshrc ~/.zshrc
