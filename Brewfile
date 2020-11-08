@@ -41,6 +41,7 @@ brew "zsh-kubectl-prompt" #From custom tap
 brew "istioctl"
 brew "sops"
 brew "telepresence"
+brew "gnu-getopt"
 
 # Hashicorp
 brew "vault"

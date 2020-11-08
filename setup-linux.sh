@@ -77,6 +77,7 @@ flatpak install flathub com.slack.Slack
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+helm plugin install https://github.com/zendesk/helm-secrets
 
 # Kind
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.9.0/kind-linux-amd64

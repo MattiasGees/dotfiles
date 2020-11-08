@@ -13,6 +13,9 @@ git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
 cd /tmp/dotfiles
 brew bundle
 
+# HELM
+helm plugin install https://github.com/zendesk/helm-secrets
+
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
 
