@@ -1,4 +1,4 @@
-ARG GOLANG_VERSION=1.14.4
+ARG GOLANG_VERSION=1.15.4
 
 # install kubectl
 FROM ubuntu:20.04 as kubectl_builder
@@ -9,17 +9,17 @@ RUN chmod 755 /usr/local/bin/kubectl
 # install 1password
 FROM ubuntu:20.04 as onepassword_builder
 RUN apt-get update && apt-get install -y curl ca-certificates unzip
-RUN curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.2.0/op_linux_amd64_v1.2.0.zip && unzip 1password.zip op -d /usr/bin &&  rm 1password.zip
+RUN curl -sS -o 1password.zip https://cache.agilebits.com/dist/1P/op/pkg/v1.8.0/op_linux_amd64_v1.8.0.zip && unzip 1password.zip op -d /usr/bin &&  rm 1password.zip
 
 # install terraform
 FROM ubuntu:20.04 as terraform_builder
 RUN apt-get update && apt-get install -y wget ca-certificates unzip
-RUN wget https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip && unzip terraform_0.11.11_linux_amd64.zip && chmod +x terraform && mv terraform /usr/local/bin && rm terraform_0.11.11_linux_amd64.zip
+RUN wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip && unzip terraform_0.14.3_linux_amd64.zip && chmod +x terraform && mv terraform /usr/local/bin && rm terraform_0.14.3_linux_amd64.zip
 
 # install HELM
 FROM ubuntu:20.04 as helm_builder
 RUN apt-get update && apt-get install -y wget ca-certificates
-RUN wget https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz && tar -xvf helm-v2.14.0-linux-amd64.tar.gz  && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin && rm helm-v2.14.0-linux-amd64.tar.gz
+RUN wget https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz && tar -xvf helm-v3.4.2-linux-amd64.tar.gz  && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin && rm helm-v3.4.2-linux-amd64.tar.gz
 
 # install Kubectx/kubens
 FROM ubuntu:20.04 as kubectx_builder
@@ -115,7 +115,7 @@ RUN sed 's/#Port 22/Port 3222/' -i /etc/ssh/sshd_config
 
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
 
-RUN wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz && rm go1.11.4.linux-amd64.tar.gz
+RUN wget https://dl.google.com/go/go1.15.4.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.15.4.linux-amd64.tar.gz && rm go1.15.4.linux-amd64.tar.gz
 RUN mkdir /root/go
 
 ENV LANG="en_US.UTF-8"
@@ -155,7 +155,7 @@ COPY --from=kubectx_builder /usr/local/bin/kubectx /usr/local/bin/
 COPY --from=kubectx_builder /usr/local/bin/kubens /usr/local/bin/
 
 # install tools
-RUN wget https://github.com/gsamokovarov/jump/releases/download/v0.22.0/jump_0.22.0_amd64.deb && sudo dpkg -i jump_0.22.0_amd64.deb && rm -rf jump_0.22.0_amd64.deb
+RUN wget https://github.com/gsamokovarov/jump/releases/download/v0.30.1/jump_0.30.1_amd64.deb && sudo dpkg -i jump_0.30.1_amd64.deb && rm -rf jump_0.30.1_amd64.deb
 
 RUN mkdir ~/.ssh && curl -fsL https://github.com/mattiasgees.keys > ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
 
