@@ -5,6 +5,7 @@ tap "superbrothers/zsh-kubectl-prompt"
 
 # General
 brew "git"
+brew "yubikey-agent"
 brew "nmap"
 brew "tmux"
 brew "wget"
@@ -33,14 +34,12 @@ brew "go"
 brew "tmate"
 
 # kubernetes
-brew "kops"
 brew "kubernetes-cli"
-brew "kubernetes-helm"
+brew "helm"
 brew "kubectx"
 brew "zsh-kubectl-prompt" #From custom tap
 brew "istioctl"
 brew "sops"
-brew "telepresence"
 brew "gnu-getopt"
 
 # Hashicorp
@@ -49,28 +48,19 @@ brew "packer"
 brew "terraform"
 brew "consul"
 
-# GPG
-brew "pinentry-mac"
+# # GPG
+# brew "pinentry-mac"
 
 # Applications
 cask "google-chrome"
 cask "slack"
 cask "spotify"
 cask "visual-studio-code"
-cask "tunnelblick"
-cask "dropbox"
-cask "virtualbox"
-cask "skype"
-cask "flux"
 cask "1password"
-cask "caffeine"
-cask "the-unarchiver"
 cask "vlc"
 cask "iterm2"
 cask "firefox"
-cask "plex-media-player"
-cask "docker"
-cask "keybase"
+# cask "docker"
 
 # Pastebot
 # Pocket

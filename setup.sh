@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
 # install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install git
 brew install git
+
+# Intall Yubikey Agent (https://github.com/FiloSottile/yubikey-agent)
+brew install yubikey-agent
+brew services start yubikey-agent
+
+export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 
 # clone dotfiles repo
 git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
@@ -13,22 +19,23 @@ git clone https://github.com/MattiasGees/dotfiles.git /tmp/dotfiles
 cd /tmp/dotfiles
 brew bundle
 
-# HELM
-helm plugin install https://github.com/zendesk/helm-secrets
-
 # Setup gitconfig
 cp /tmp/dotfiles/gitconfig ~/.gitconfig
 
 # Setup SSH
 cp /tmp/dotfiles/sshconfig ~/.ssh/config
 
+# Install Powerline font
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp /tmp/dotfiles/zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Set permissions
-chmod -R 744 /usr/local/share/zsh
 
 # Install code extensions
 code --install-extension DavidAnson.vscode-markdownlint

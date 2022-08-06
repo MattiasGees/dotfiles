@@ -1,5 +1,3 @@
 Host *
-   IdentitiesOnly=yes
+   IdentityAgent /opt/homebrew/var/run/yubikey-agent.sock
    ServerAliveInterval 120
-   AddKeysToAgent yes
-   UseKeychain yes

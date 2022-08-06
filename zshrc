@@ -23,7 +23,7 @@ plugins=(
   encode64
   tmux
   zsh-autosuggestions
-  zsh-kubectl-prompt
+  #zsh-kubectl-prompt
   colored-man-pages
   gpg-agent
   golang
@@ -37,6 +37,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /opt/homebrew/etc/zsh-kubectl-prompt/kubectl.zsh
 
 # User configuration
 
@@ -69,12 +70,10 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/go/bin:$PATH"
 
-# configure jetstack vault
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
 export GPG_TTY=$(tty)
 
-alias vault-login="vault login -method=cert"
 alias git-sync="git checkout master && git fetch upstream && git rebase upstream/master && git push origin master"
 alias git-clean="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d && git remote prune origin && git remote prune upstream"
 alias gcloud-personal="gcloud config set core/account mattias.gees@gmail.com"
