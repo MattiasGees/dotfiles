@@ -40,19 +40,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Install code extensions
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension eamodio.gitlens
-code --install-extension erd0s.terraform-autocomplete
+code --install-extension HashiCorp.terraform
 code --install-extension James-Yu.latex-workshop
-code --install-extension lextudio.restructuredtext
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.python
 code --install-extension redhat.vscode-yaml
-code --install-extension searKing.preview-vscode
 code --install-extension technosophos.vscode-helm
 code --install-extension ms-azuretools.vscode-docker
 
 # Setup settings of VS Code
 cp /tmp/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
-# Setup GPG
-cp /tmp/dotfiles/gpg.conf ~/.gnupg/gpg.conf
-cp /tmp/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+# # Setup GPG
+# cp /tmp/dotfiles/gpg.conf ~/.gnupg/gpg.conf
+# cp /tmp/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
