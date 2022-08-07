@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 tap "homebrew/cask"
 tap "superbrothers/zsh-kubectl-prompt"
+tap "sigstore/tap"
 
 # General
 brew "git"
@@ -47,6 +48,10 @@ brew "vault"
 brew "packer"
 brew "terraform"
 brew "consul"
+
+# Sigstore
+brew "cosign"
+brew "gitsign"
 
 # # GPG
 # brew "pinentry-mac"
