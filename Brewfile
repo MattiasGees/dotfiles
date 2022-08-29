@@ -3,6 +3,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "superbrothers/zsh-kubectl-prompt"
 tap "sigstore/tap"
+tap "fluxcd/tap"
 
 # General
 brew "git"
@@ -42,6 +43,7 @@ brew "zsh-kubectl-prompt" #From custom tap
 brew "istioctl"
 brew "sops"
 brew "gnu-getopt"
+brew "flux"
 
 # Hashicorp
 brew "vault"
