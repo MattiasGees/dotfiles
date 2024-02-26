@@ -1,13 +1,20 @@
 cask_args appdir: "/Applications"
 
-tap "homebrew/cask"
-tap "superbrothers/zsh-kubectl-prompt"
-tap "sigstore/tap"
+tap "aquasecurity/trivy"
 tap "fluxcd/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "mike-engel/jwt-cli"
+tap "sigstore/tap"
+tap "superbrothers/zsh-kubectl-prompt"
+tap "weaveworks/tap"
+tap hashicorp/tap
 
 # General
 brew "git"
-brew "yubikey-agent"
+brew "yubikey-agent", restart_service: true
 brew "nmap"
 brew "tmux"
 brew "wget"
@@ -20,6 +27,10 @@ brew "htop"
 brew "watch"
 brew "mosh"
 brew "neofetch"
+brew "gnu-getopt"
+brew "grpcurl"
+brew "mysql-client"
+brew "mike-engel/jwt-cli/jwt-cli"
 
 # Automation
 brew "ansible"
@@ -32,42 +43,42 @@ cask "google-cloud-sdk"
 # Programming
 brew "go"
 
-# Collaboration
-brew "tmate"
+# Docker
+brew "colima", restart_service: true
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
 
 # kubernetes
 brew "kubernetes-cli"
 brew "helm"
 brew "kubectx"
-brew "zsh-kubectl-prompt" #From custom tap
+brew "superbrothers/zsh-kubectl-prompt/zsh-kubectl-prompt"
 brew "istioctl"
 brew "sops"
-brew "gnu-getopt"
-brew "flux"
+brew "fluxcd/tap/flux"
+brew "cmctl"
+brew "eksctl"
+brew "istioctl"
 
 # Hashicorp
-brew "vault"
-brew "packer"
-brew "terraform"
-brew "consul"
+brew "hashicorp/tap/vault"
+brew "hashicorp/tap/packer"
+brew "hashicorp/tap/terraform"
 
-# Sigstore
-brew "cosign"
-brew "gitsign"
+# Software Supply Chain
+brew "aquasecurity/trivy/trivy"
+brew "sigstore/tap/gitsign"
+brew "sigstore/tap/rekor-cli"
+brew "scorecard"
 
 # # GPG
 # brew "pinentry-mac"
 
 # Applications
-cask "google-chrome"
-cask "slack"
 cask "spotify"
 cask "visual-studio-code"
-cask "1password"
-cask "vlc"
 cask "iterm2"
-cask "firefox"
-# cask "docker"
 
 # Pastebot
 # Pocket
