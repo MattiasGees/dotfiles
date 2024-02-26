@@ -10,7 +10,7 @@ tap "mike-engel/jwt-cli"
 tap "sigstore/tap"
 tap "superbrothers/zsh-kubectl-prompt"
 tap "weaveworks/tap"
-tap hashicorp/tap
+tap "hashicorp/tap"
 
 # General
 brew "git"
@@ -80,6 +80,22 @@ cask "spotify"
 cask "visual-studio-code"
 cask "iterm2"
 
+# VS Code Extensions
+vscode "bierner.markdown-mermaid"
+vscode "davidanson.vscode-markdownlint"
+vscode "eamodio.gitlens"
+vscode "github.codespaces"
+vscode "github.vscode-github-actions"
+vscode "golang.go"
+vscode "hashicorp.terraform"
+vscode "james-yu.latex-workshop"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-vscode.makefile-tools"
+vscode "redhat.vscode-yaml"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "streetsidesoftware.code-spell-checker-british-english"
+vscode "technosophos.vscode-helm"
 # Pastebot
 # Pocket
 # Twitter
