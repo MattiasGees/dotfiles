@@ -1,6 +1,5 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontSize": 12,
     "editor.tabSize": 2,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
@@ -16,7 +15,25 @@
         "suppressShowKeyBindingsNotice": true
     },
     "gitlens.historyExplorer.enabled": true,
-    "window.zoomLevel": 0,
     "go.autocompleteUnimportedPackages": true,
-    "latex-workshop.view.pdf.viewer": "browser"
+    "latex-workshop.view.pdf.viewer": "browser",
+    "redhat.telemetry.enabled": false,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "cSpell.userWords": [
+        "BUPA",
+        "crds",
+        "fluxcd",
+        "Kustomization",
+        "kustomize",
+        "kustomizeconfig",
+        "Linkerd",
+        "Mattias",
+        "Venafi"
+    ],
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    }
 }
