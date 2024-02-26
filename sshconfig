@@ -1,3 +1,5 @@
+Include /Users/mattias/.colima/ssh_config
+
 Host *
    IdentityAgent /opt/homebrew/var/run/yubikey-agent.sock
    ServerAliveInterval 120

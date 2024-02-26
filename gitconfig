@@ -1,11 +1,11 @@
 [user]
     name = Mattias Gees
     email = mattias.gees@gmail.com
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
-[gpg "x509"]
-	program = gitsign
-[gpg]
-	format = x509
+; [commit]
+; 	gpgsign = true
+; [tag]
+; 	gpgsign = true
+; [gpg "x509"]
+; 	program = gitsign
+; [gpg]
+; 	format = x509
