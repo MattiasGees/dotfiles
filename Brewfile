@@ -13,6 +13,7 @@ tap "weaveworks/tap"
 tap "hashicorp/tap"
 
 # General
+brew "coreutils"
 brew "git"
 brew "yubikey-agent", restart_service: true
 brew "nmap"
