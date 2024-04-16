@@ -61,6 +61,7 @@ brew "fluxcd/tap/flux"
 brew "cmctl"
 brew "eksctl"
 brew "istioctl"
+brew "kind"
 
 # Hashicorp
 brew "hashicorp/tap/vault"
