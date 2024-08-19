@@ -36,6 +36,7 @@ brew "mysql-client"
 brew "mike-engel/jwt-cli/jwt-cli"
 brew "1password-cli"
 brew "socat"
+brew "gnu-sed"
 
 # Window management
 brew "felixkratz/formulae/sketchybar", restart_service: true
