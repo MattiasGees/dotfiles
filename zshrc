@@ -4,10 +4,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 
 DEFAULT_USER="mattias"
 
@@ -21,7 +24,6 @@ plugins=(
   aws
   docker
   encode64
-  tmux
   zsh-autosuggestions
   #zsh-kubectl-prompt
   colored-man-pages
@@ -37,7 +39,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 source /opt/homebrew/etc/zsh-kubectl-prompt/kubectl.zsh
+eval "$(ssh-agent -s)"
 
 # User configuration
 
@@ -162,3 +166,7 @@ EOF
 
     kubectl -n "${namespace}" attach "${pod_name}" -c "${ephemeral_container_name}" -it
 }
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
